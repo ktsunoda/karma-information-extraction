@@ -31,6 +31,7 @@ public class StanfordCoreNLPService implements IExtractionService {
 	@Produces(MediaType.APPLICATION_JSON)
 	@Override
 	public List<OutputExtraction> performExt(List<InputExtraction> input) {
+
 		return new StanfordNLPExtraction().performExtraction(input);
 	}
 	
