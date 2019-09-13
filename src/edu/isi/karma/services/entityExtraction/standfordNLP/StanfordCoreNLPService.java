@@ -1,4 +1,4 @@
-package edu.isi.karma.services.entityExtraction.stanfordNLP;
+package edu.isi.karma.services.entityExtraction.standfordNLP;
 
 import java.util.List;
 
@@ -14,7 +14,6 @@ import javax.ws.rs.core.Response.ResponseBuilder;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import edu.isi.karma.services.entityExtraction.IExtractionService;
 import edu.isi.karma.services.entityExtraction.InputExtraction;
 import edu.isi.karma.services.entityExtraction.OutputExtraction;
 
@@ -22,17 +21,20 @@ import edu.isi.karma.services.entityExtraction.OutputExtraction;
  * Root resource (exposed at "Extract" path)
  */
 @Path("StanfordCoreNLP")
-public class StanfordCoreNLPService implements IExtractionService {
+public class StanfordCoreNLPService {
+
+	// mvn clean compile exec:java
+
 	/**
 	 * @return String that will be returned as a text/plain response.
 	 */
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
-	@Override
 	public List<OutputExtraction> performExt(List<InputExtraction> input) {
 
 		return new StanfordNLPExtraction().performExtraction(input);
+
 	}
 	
 	@GET
@@ -63,10 +65,8 @@ public class StanfordCoreNLPService implements IExtractionService {
 			respBuild.header("Access-Control-Allow-Origin", "*");
 		} catch (Exception e) {
 			e.printStackTrace();
-			respBuild = Response.status(500);
-			return respBuild.build();
 		}
-
 		return respBuild.build();
 	}
+
 }

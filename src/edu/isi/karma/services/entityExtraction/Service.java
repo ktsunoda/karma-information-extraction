@@ -9,15 +9,16 @@ import org.json.JSONObject;
 
 import com.google.gson.Gson;
 
-import edu.isi.karma.services.entityExtraction.stanfordNLP.StanfordCoreNLPService;
+import edu.isi.karma.services.entityExtraction.standfordNLP.StanfordCoreNLPService;
 
 
 public class Service {
+
 	public String execute(String data) throws IOException {
 		StanfordCoreNLPService service = new StanfordCoreNLPService();
 		
 		JSONArray json = new JSONArray(data);
-		List<InputExtraction> inputExt = new ArrayList<InputExtraction>();
+		List<InputExtraction> inputExt = new ArrayList<>();
 		for(int i=0; i<json.length(); i++) {
 			JSONObject input = json.getJSONObject(i);
 			InputExtraction ie = new InputExtraction();
@@ -25,11 +26,12 @@ public class Service {
 			ie.text = input.getString("text");
 			inputExt.add(ie);
 		}
-
 		List<OutputExtraction> result = service.performExt(inputExt);
 		
 		Gson writer = new Gson();
 		String output = writer.toJson(result);
 		return output;
 	}
+	
+	
 }
