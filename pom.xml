@@ -3,7 +3,6 @@
   <groupId>edu.isi.karma.services</groupId>
   <artifactId>entityExtraction</artifactId>
   <version>0.0.1</version>
-  <packaging>war</packaging>
   
   <dependencies>
   	<dependency>

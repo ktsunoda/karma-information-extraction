@@ -3,7 +3,6 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>edu.isi.karma.services</groupId>
   <artifactId>entityExtraction</artifactId>
-  <packaging>war</packaging>
   <version>0.0.1</version>
   <build>
     <sourceDirectory>src</sourceDirectory>
